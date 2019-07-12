@@ -24,4 +24,28 @@ public class GradeBookTest {
         // then
         Assert.assertTrue(gradeBook.getSubjects().contains(subject));
     }
+
+    @Test (expected = NullPointerException.class)
+    public void addGradeSubjectNotExistInGradeBookTest() {
+        // given
+        Subject subject = Mockito.mock(Mathematics.class);
+
+        // when
+        gradeBook.addGrade(subject, GradeType.GOOD);
+
+        // then
+        // throw exception
+    }
+
+    @Test
+    public void addGradeSubjectExistInGradeBookTest() {
+        // given
+        Subject subject = Mockito.mock(Mathematics.class);
+
+        // when
+        gradeBook.addGrade(subject, GradeType.GOOD);
+
+        // then
+        Assert.assertEquals(subject.getGrades().get(0), GradeType.GOOD);
+    }
 }
