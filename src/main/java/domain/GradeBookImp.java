@@ -11,6 +11,8 @@ public class GradeBookImp implements GradeBook {
     }
 
     public void addSubject(Subject subject) {
+        if (subject == null)
+            throw new NullPointerException("Cannot add undefined subject.");
         if (subjects.contains(subject))
             throw new IllegalArgumentException("The subject already exist in the grade book.");
 
@@ -20,7 +22,6 @@ public class GradeBookImp implements GradeBook {
     public void addGrade(Subject subject, GradeType gradeType) {
         if (subject == null)
             throw new NullPointerException("Cannot add grade to undefined subject.");
-
         if (!subjects.contains(subject))
             throw new IllegalArgumentException("The subject doesn't exist in grade book.");
 
