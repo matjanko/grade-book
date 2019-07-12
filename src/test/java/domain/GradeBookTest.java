@@ -25,6 +25,15 @@ public class GradeBookTest {
         Assert.assertTrue(gradeBook.getSubjects().contains(subject));
     }
 
+    @Test (expected = NullPointerException.class)
+    public void addSubjectWhenSubjectIsNullTest() {
+        // when
+        gradeBook.addSubject(null);
+
+        // then
+        // throw exception
+    }
+
     @Test (expected = IllegalArgumentException.class)
     public void addSubjectExistingInGradeBookTest() {
         // given
