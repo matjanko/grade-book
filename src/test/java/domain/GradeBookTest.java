@@ -10,7 +10,7 @@ public class GradeBookTest {
 
     @Before
     public void before() {
-
+        gradeBook = new GradeBookImp();
     }
 
     @Test
