@@ -38,7 +38,11 @@ public class GradeBookImp implements GradeBook {
     }
 
     public double calculateGradeBookAverage() {
-        return 0;
+        double gradeSum = 0;
+        for (Subject subject : subjects)
+            gradeSum += calculateAverage(subject);
+
+        return gradeSum / subjects.size();
     }
 
     public List<Subject> getSubjects() {
