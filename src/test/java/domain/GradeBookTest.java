@@ -96,6 +96,25 @@ public class GradeBookTest {
         double expectedAverage = gradeBook.calculateAverage(subject);
 
         // then
-        Assert.assertEquals(3.25, expectedAverage, 2);
+        Assert.assertEquals(3.25, expectedAverage, 0);
+    }
+
+    @Test
+    public void calculateGradeBookAverageTest() {
+        // given
+        Subject math = Mockito.spy(new Mathematics());
+        Subject biology = Mockito.spy(new Biology());
+        gradeBook.addSubject(math);
+        gradeBook.addSubject(biology);
+        gradeBook.addGrade(math, GradeType.GOOD);
+        gradeBook.addGrade(math, GradeType.EXCELLENT);
+        gradeBook.addGrade(biology, GradeType.POOR);
+        gradeBook.addGrade(biology, GradeType.UNSATISFACTORY);
+
+        // when
+        double expectedAverage = gradeBook.calculateGradeBookAverage();
+
+        // then
+        Assert.assertEquals(3.25, expectedAverage, 0);
     }
 }
