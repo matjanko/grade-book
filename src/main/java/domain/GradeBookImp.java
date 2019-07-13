@@ -30,7 +30,11 @@ public class GradeBookImp implements GradeBook {
     }
 
     public double calculateAverage(Subject subject) {
-        return 0;
+        int gradesSum = 0;
+        for(GradeType grade: subject.getGrades())
+            gradesSum += grade.getNumberValue();
+
+        return gradesSum / subject.getGrades().size();
     }
 
     public double calculateGradeBookAverage() {
