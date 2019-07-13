@@ -5,7 +5,7 @@ import java.util.List;
 public interface GradeBook {
     void addSubject(Subject subject);
     void addGrade(Subject subject, GradeType gradeType);
-    double CalculateAverage(Subject subject);
-    double CalculateGradeBookAverage();
+    double calculateAverage(Subject subject);
+    double calculateGradeBookAverage();
     List<Subject> getSubjects();
 }

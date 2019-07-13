@@ -81,4 +81,21 @@ public class GradeBookTest {
         // then
         Assert.assertEquals(4, expectedGrade);
     }
+
+    @Test
+    public void calculateAverageTest() {
+        // given
+        Subject subject = Mockito.spy(new Mathematics());
+        gradeBook.addSubject(subject);
+        gradeBook.addGrade(subject, GradeType.GOOD);
+        gradeBook.addGrade(subject, GradeType.EXCELLENT);
+        gradeBook.addGrade(subject, GradeType.POOR);
+        gradeBook.addGrade(subject, GradeType.UNSATISFACTORY);
+
+        // when
+        double expectedAverage = gradeBook.calculateAverage(subject);
+
+        // then
+        Assert.assertEquals(3.25, expectedAverage, 2);
+    }
 }

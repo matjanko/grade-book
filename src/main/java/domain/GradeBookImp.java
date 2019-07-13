@@ -29,15 +29,16 @@ public class GradeBookImp implements GradeBook {
         subjects.get(subjectIndex).addGrade(gradeType);
     }
 
-    public double CalculateAverage(Subject subject) {
+    public double calculateAverage(Subject subject) {
         return 0;
     }
 
-    public double CalculateGradeBookAverage() {
+    public double calculateGradeBookAverage() {
         return 0;
     }
 
     public List<Subject> getSubjects() {
         return subjects;
     }
+
 }
