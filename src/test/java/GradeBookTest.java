@@ -1,9 +1,11 @@
-package domain;
-
+import domain.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
+import domain.subjects.Biology;
+import domain.subjects.Mathematics;
+import domain.subjects.Subject;
 
 public class GradeBookTest {
     GradeBook gradeBook;

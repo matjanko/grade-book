@@ -1,18 +1,17 @@
 package domain;
 
-import java.util.ArrayList;
+import domain.subjects.Subject;
+import java.util.LinkedList;
 import java.util.List;
 
 public class GradeBookImp implements GradeBook {
     private List<Subject> subjects;
 
-    public GradeBookImp() {
-        subjects = new ArrayList<Subject>();
-    }
-
     public void addSubject(Subject subject) {
         if (subject == null)
             throw new NullPointerException("Cannot add undefined subject.");
+        if (subjects == null)
+            subjects = new LinkedList<Subject>();
         if (subjects.contains(subject))
             throw new IllegalArgumentException("The subject already exist in the grade book.");
 
@@ -25,16 +24,11 @@ public class GradeBookImp implements GradeBook {
         if (!subjects.contains(subject))
             throw new IllegalArgumentException("The subject doesn't exist in grade book.");
 
-        int subjectIndex = subjects.indexOf(subject);
-        subjects.get(subjectIndex).addGrade(gradeType);
+        subjects.get(subjects.indexOf(subject)).addGrade(gradeType);
     }
 
     public double calculateAverage(Subject subject) {
-        double gradesSum = 0;
-        for(GradeType grade: subject.getGrades())
-            gradesSum += grade.getNumberValue();
-
-        return gradesSum / subject.getGrades().size();
+        return subjects.get(subjects.indexOf(subject)).calculateAverage();
     }
 
     public double calculateGradeBookAverage() {

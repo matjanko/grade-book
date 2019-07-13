@@ -1,5 +1,7 @@
 package domain;
 
+import domain.subjects.Subject;
+
 import java.util.List;
 
 public interface GradeBook {
